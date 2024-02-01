@@ -160,6 +160,8 @@ If you are using the canbus channel, also add
 dtoverlay=mcp2515-can1,oscillator=16000000,interrupt=25
 ```
 
+Please note that the can bus will become available to the Operating System under can0.
+
 To enable auto shutdown we need to add the below line, the debounce value (milliseconds) allows a configurable delay before issuing an OS shutdown
 this can be changed by preference, but needs to less than 30 seconds to allow a graceful shutdown before power is removed by
 the PiMost.
