@@ -4,7 +4,7 @@
 
 Below follow the installation instructions for the piMost HAT.
 
-A full explanation by Rhys Morgan is also [available on Youtube] (https://www.youtube.com/watch?v=KVagXKiK4Eg&pp=ygUKc29ja2V0bW9zdA%3D%3D).
+A full explanation by Rhys Morgan is also [available on Youtube](https://www.youtube.com/watch?v=KVagXKiK4Eg&pp=ygUKc29ja2V0bW9zdA%3D%3D).
 
 The PiMost has various headers available on the board:
 
