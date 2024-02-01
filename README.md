@@ -27,12 +27,13 @@ The PiMost has various headers available on the board:
 
 ### PiMost header more info: https://github.com/rhysmorgan134/SocketMost/wiki/PiMost
 
-This is a library for use with the PiMost to allow Most Bus messages (Most 25 only) to be sent to various applications. This
-package just gives out a json formatted string over a unix Datagram socket that can then be consumed through 
+This is a library for use with the PiMost to allow Most Bus messages (Most 25 only) to be sent to various applications.
+
+This package just gives out a json formatted string over a unix Datagram socket that can then be consumed through 
 which ever application you wish. The implementation is currently at a very early stage, and has been tested
-on a Jaguar and Land rover system running at 48khz. In theory 44.1khz should be useable but will need some configuration
-changes around the registers (as a hint look into legacy start up mode, and only using the RX from the transceiver as the locking source) this is 
-untested and no guarantee it will work in the way highlighted below.
+on a Jaguar and Land rover system running at 48khz.
+
+In theory 44.1khz should be useable but will need some configuration changes around the registers (as a hint look into legacy start up mode, and only using the RX from the transceiver as the locking source). This is untested and no guarantee it will work in the way highlighted below.
 
 ### Recommended Hardware
 
@@ -69,6 +70,7 @@ npm run build
 #### Audio Drivers
 
 The audio drivers have been modified from [this](https://github.com/AkiyukiOkayasu/RaspberryPi_I2S_Slave/tree/master) super useful overlay.
+
 The piMost needs i2s audio, and luckily the clocking source is provided by the MOST network, so rather than having to deal with 
 the awful Pi audio clocks, we get a great clean signal.
 
@@ -173,10 +175,12 @@ Then follow the optional steps in Boot Config section below
 
 #### Graceful shut down
 
-If the shutdown jumper is not in place, then after MOST network activity stops, power will be cut from the supply after ~30seconds.
+If the shutdown jumper is not in place, then after MOST network activity stops, power will be cut from the supply after ~30 seconds.
+
 The idea of this is that when MOST activity stops, we pick this up via GPIO, and after a configurable delay the Pi gets shutdown gracefully
-then after 30 seconds of the last activity power then gets completely cut, lowering the consumption to around 0.5ma. This works with
-both the USB-C power PiMost and also the 12v supply PiMost. Follow the relevant part of the Boot config section to enable this.
+then after 30 seconds of the last activity power then gets completely cut, lowering the consumption to around 0.5ma.
+
+This works with both the USB-C power PiMost and also the 12v supply PiMost. Follow the relevant part of the Boot config section to enable this.
 
 #### Boot config
 
@@ -210,16 +214,16 @@ Please note that the can bus will become available to the Operating System under
 To enable auto shutdown we need to add the below line, the debounce value (milliseconds) allows a configurable delay before issuing an OS shutdown
 this can be changed by preference, but needs to less than 30 seconds to allow a graceful shutdown before power is removed by
 the PiMost.
-</strike>
+</strike><br/>
 
-#
 <strike> 
 ```shell
 dtoverlay=gpio-shutdown,gpio_pin=26,active_low=0,debounce=2000
 ```
 </strike>
-#
-NOTE: This has changed; The status signal is also used within the driver, so creates an access error, it's recommended to implement within the driver by executing a shutdown command
+<br/>
+NOTE: This has changed; The status signal is also used within the driver, so creates an access error.
+It is recommended to implement within the driver by executing a shutdown command
 
 
 ### Software install
@@ -233,7 +237,6 @@ You can also return to the Socketmost location by
 ```shell
 cd ~/Socketmost
 ```
-
 
 Get the current directory 
 ```shell
