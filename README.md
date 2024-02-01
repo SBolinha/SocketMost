@@ -66,7 +66,9 @@ sudo cp piMost48KhzStereo.dtbo /boot/overlays
 ```
 
 #edit pulse audio config to default all audio the 48khz
+```shell
 sudo nano /etc/pulse/daemon.conf
+```
 
 #uncomment/edit the file to have the below
 ```shell
