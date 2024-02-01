@@ -9,6 +9,13 @@ on a Jaguar and Land rover system running at 48khz. In theory 44.1khz should be 
 changes around the registers (as a hint look into legacy start up mode, and only using the RX from the transceiver as the locking source) this is 
 untested and no guarantee it will work in the way highlighted below.
 
+### Recommended Hardware
+
+The installation works well on Raspberry 4 and 5.
+
+Due to many installation issues, trying out on older Raspberries (2, 3, Zero, Zero 2) is not recommended.
+Installation of NodeJS and NPM, and subsequent compilation of the libraries has proven to be a major issue.
+
 ### Installation
 
 First clone this repo
@@ -79,7 +86,7 @@ default-sample-channels = 2
 default-channel-map = front-left,front-right
 ```
 
-#Save the file then proceed
+Press `Cntrl X` followed by `Y` to save the 'daemon.conf' file
 
 #If using bookworm, ensure to switch audio to use pulse audio via raspi-config.
 
@@ -118,6 +125,15 @@ sudo nano /etc/pulse/default.pa
 load-module module-alsa-source device=hw:c,d
 .ifexists module-udev-detect.so
 ```
+Press `Cntrl X` followed by `Y` to save the 'default.pa' file.
+
+So, for the above example (card 3, device 1, this would change into
+<i>
+```shell
+load-module module-alsa-source device=hw:3,1
+.ifexists module-udev-detect.so
+```</i>
+
 
 #### Canbus Set up - Optional
 If you wish to make use of the PiMost Canbus channel, then follow the below
@@ -160,7 +176,9 @@ If you are using the canbus channel, also add
 dtoverlay=mcp2515-can1,oscillator=16000000,interrupt=25
 ```
 
-Please note that the can bus will become available to the Operating System under can0.
+Press `Cntrl X` followed by `Y` to save the `config.txt` file.
+
+Please note that the can bus will become available to the Operating System under <b>`can0`</b>.
 
 <strike>
 To enable auto shutdown we need to add the below line, the debounce value (milliseconds) allows a configurable delay before issuing an OS shutdown
@@ -168,16 +186,15 @@ this can be changed by preference, but needs to less than 30 seconds to allow a 
 the PiMost.
 </strike>
 
-
-
+#
 <strike> 
 ```shell
 dtoverlay=gpio-shutdown,gpio_pin=26,active_low=0,debounce=2000
 ```
 </strike>
+#
+NOTE: This has changed; The status signal is also used within the driver, so creates an access error, it's recommended to implement within the driver by executing a shutdown command
 
-
-NOTE: This has changed, the status signal is also used within the driver, so creates an access error, it's recommended to implement within the driver by executing a shutdown command
 
 ### Software install
 
