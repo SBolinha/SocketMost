@@ -11,17 +11,17 @@ The PiMost has various headers available on the board:
 <b>NOTE: DO NOT CONNECT MORE THAN ONE 5V SOURCE AT ANY TIME!</b>
 
 <ul>
-<li><b>Green Circle</b> - This enables/disables the timer. With the jumper in place the PiMost won't cut power to the pi, without the jumper in place, 30 seconds after no MOST activity the board will cut power, when running with the shutdown, it is important to have a solid and capable 5v supply otherwise you may get shutdowns as soon as the MOST signal is lost.
+<li><b>Green Circle</b> [TMR] - This enables/disables the timer. With the jumper in place the PiMost won't cut power to the pi, without the jumper in place, 30 seconds after no MOST activity the board will cut power, when running with the shutdown, it is important to have a solid and capable 5v supply otherwise you may get shutdowns as soon as the MOST signal is lost.
 </li><br/>
-<li><b>Yellow Circle</b> - Auxillary power, this can support running a touchscreen/fan etc. Max 1A power - DO NOT PUT A JUMPER ON THIS HEADER.
+<li><b>Yellow Circle</b> [AUX] - Auxillary power, this can support running a touchscreen/fan etc. Max 1A power - DO NOT PUT A JUMPER ON THIS HEADER.
 </li><br/>
-<li><b>Red Circle</b>- Canbus 120ohm terminator, with this jumper in place the 120ohm resistor on the canbus is active.
+<li><b>Red Circle</b> [120R] - Canbus 120ohm terminator, with this jumper in place the 120ohm resistor on the canbus is active.
 </li><br/>
-<li><b>Blue/Pink Squares</b> - This three pin header selects the mode for the chip. With the jumper in the top posisiton, between middle pin and top pin (blue square), the chip is in enhanced mode. This is optimal for 48khz Most systems (Jaguar/Land Rover/Volvo). With the jumper in the bottom position, between middle and bottom pin (pink square) the chip is in legacy mode, this mode will work on both 44.1khz and 48khz.
+<li><b>Blue/Pink Squares</b> [ENH LEG] - This three pin header selects the mode for the chip. With the jumper in the top posisiton, between middle pin and top pin (blue square), the chip is in enhanced mode. This is optimal for 48khz Most systems (Jaguar/Land Rover/Volvo). With the jumper in the bottom position, between middle and bottom pin (pink square) the chip is in legacy mode, this mode will work on both 44.1khz and 48khz.
 </li><br/>
-<li><b>White Square</b> - You can use these unsoldered headers to supply your own 0v to the board
+<li><b>White Square</b> [J10] - You can use these unsoldered headers to supply your own 0v to the board
 </li><br/>
-<li><b>Red Square</b> - You can use this unsoldered header to supply your own 5v to the board.
+<li><b>Red Square</b> [J1] - You can use this unsoldered header to supply your own 5v to the board.
 </li><br/>
 </ul><br/>
 
