@@ -209,7 +209,7 @@ sudo nano /etc/systemd/system/socketmost.service
 Paste the below code into the file, if needed change line that begins with ExecStart and working directory to match your path from above, if the user is not
 pi then also change that value to match your username.
 
-Please check that your username must be changed from pi into your <username> on three locations below:
+Please check that username pi must be changed into your username on three locations below:
 ```shell
 [Unit]
 Description=socketmost
