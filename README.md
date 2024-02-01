@@ -162,17 +162,18 @@ dtoverlay=mcp2515-can1,oscillator=16000000,interrupt=25
 
 Please note that the can bus will become available to the Operating System under can0.
 
+<strike>
 To enable auto shutdown we need to add the below line, the debounce value (milliseconds) allows a configurable delay before issuing an OS shutdown
 this can be changed by preference, but needs to less than 30 seconds to allow a graceful shutdown before power is removed by
 the PiMost.
+</strike>strike>
 
-<strike>
-  
+<strike> 
 ```shell
 dtoverlay=gpio-shutdown,gpio_pin=26,active_low=0,debounce=2000
 ```
 </strike>
-This has changed, the status signal is also used within the driver, so creates an access error, it's recommended to implement within the driver by executing a shutdown command
+NOTE: This has changed, the status signal is also used within the driver, so creates an access error, it's recommended to implement within the driver by executing a shutdown command
 
 ### Software install
 
@@ -180,6 +181,12 @@ If you are still in the dtoverlay folder, change up two directories
 ```shell
 cd ../..
 ```
+
+You can also return to the Socketmost location by 
+```shell
+cd ~/Socketmost
+```
+
 
 Get the current directory 
 ```shell
@@ -200,6 +207,8 @@ sudo nano /etc/systemd/system/socketmost.service
 
 Paste the below code into the file, if needed change line that begins with ExecStart and working directory to match your path from above, if the user is not
 pi then also change that value to match your username.
+
+Please check that your username must be changed from pi into your <username> on three locations below:
 ```shell
 [Unit]
 Description=socketmost
