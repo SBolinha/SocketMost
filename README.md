@@ -2,7 +2,9 @@
 
 ## The [PiMost HAT](https://shop.moderndaymods.com/products/pimost-hat-usb-c-power-most25-only) for Raspberry Pi can be purchased at the [Modern Days Mods shop](https://shop.moderndaymods.com/products/pimost-hat-usb-c-power-most25-only)
 
-Below follow the use and installation instructions.
+Below follow the installation instructions for the piMost HAT.
+
+A full explanation by Rhys Morgan is also [available on Youtube] (https://www.youtube.com/watch?v=KVagXKiK4Eg&pp=ygUKc29ja2V0bW9zdA%3D%3D).
 
 The PiMost has various headers available on the board:
 
