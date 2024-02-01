@@ -1,6 +1,29 @@
 ## SocketMost for use with [PiMost](https://shop.moderndaymods.com/products/pimost-hat-usb-c-power-most25-only)
 
-### PiMost header info https://github.com/rhysmorgan134/SocketMost/wiki/PiMost
+## PiMost HAT
+
+The PiMost has various headers available on the board
+
+![image](https://github.com/SBolinha/SocketMost/assets/157318106/58b3c830-4d7a-49e6-89af-2cf24cbf0e6b)
+
+<b>Note: !DO NOT CONNECT MORE THAN ONE 5V SOURCE AT ANY TIME!</b>
+
+<ul>
+<li>Green Circle - This enables/disables the timer. With the jumper in place the PiMost won't cut power to the pi, without the jumper in place, 30 seconds after no MOST activity the board will cut power, when running with the shutdown, it is important to have a solid and capable 5v supply otherwise you may get shutdowns as soon as the MOST signal is lost.
+</li>
+<li>Yellow Circle - Auxillary power, this can support running a touchscreen/fan etc. Max 1A power - DO NOT PUT A JUMPER ON THIS HEADER.
+</li>
+<li>Red Circle - Canbus 120ohm terminator, with this jumper in place the 120ohm resistor on the canbus is active.
+</li>
+<li>Blue/Pink Squares - This three pin header selects the mode for the chip. With the jumper in the top posisiton, between middle pin and top pin (blue square), the chip is in enhanced mode. This is optimal for 48khz Most systems (Jaguar/Land Rover/Volvo). With the jumper in the bottom position, between middle and bottom pin (pink square) the chip is in legacy mode, this mode will work on both 44.1khz and 48khz.
+</li>
+<li>White Square - You can use these unsoldered headers to supply your own 0v to the board
+</li>
+<li>Red Square - You can use this unsoldered header to supply your own 5v to the board.
+</li>
+</ul>
+
+### PiMost header more info: https://github.com/rhysmorgan134/SocketMost/wiki/PiMost
 
 This is a library for use with the PiMost to allow Most Bus messages (Most 25 only) to be sent to various applications. This
 package just gives out a json formatted string over a unix Datagram socket that can then be consumed through 
