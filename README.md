@@ -80,12 +80,33 @@ default-channel-map = front-left,front-right
 ```
 
 #Save the file then proceed
+
+#If using bookworm, ensure to switch audio to use pulse audio via raspi-config.
+
+```shell
+sudo raspi-config
+```
+
+If pulse audio is not available, then install pulseaudio via 
+
+```shell
+sudo apt install pulseaudio
+```
+Then reboot, check raspi-config again
+
+#Now to set up the audio connection, check the device registration
 ```shell
 arecord -l
 ```
 
-#Take note of the card and device number.
-#If using bookworm, ensure to switch audio to use pulse audio via raspi-config.
+You will get something similar to:
+```shell
+card 3: PiMost [PiMost], device 1: bcm2835-i2s-dir-hifi dir-hifi-1 [bcm2835-i2s-dir-hifi dir-hifi-1]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+```
+
+#Take note of the card and device number. In the above example: card 3 and device 1 respectively.
 
 ```shell
 sudo nano /etc/pulse/default.pa
