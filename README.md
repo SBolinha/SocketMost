@@ -40,45 +40,59 @@ The audio drivers have been modified from [this](https://github.com/AkiyukiOkaya
 The piMost needs i2s audio, and luckily the clocking source is provided by the MOST network, so rather than having to deal with 
 the awful Pi audio clocks, we get a great clean signal.
 
-```shell
 #change to the overlays directory
+```shell
 cd dtoverlays
+```
 
 #If using a pi4
+```shell
 cd pi
+```
 
 #Otherwise if using a pi5
+```shell
 cd pi5
+```
 
 #build the overlay
+```shell
 dtc -@ -H epapr -O dtb -o piMost48KhzStereo.dtbo -Wno-unit_address_vs_reg piMost48KhzStereo.dts
+```
 
 #copy the built overlay
+```shell
 sudo cp piMost48KhzStereo.dtbo /boot/overlays
+```
 
 #edit pulse audio config to default all audio the 48khz
 sudo nano /etc/pulse/daemon.conf
 
 #uncomment/edit the file to have the below
+```shell
 default-sample-format = s16le
 default-sample-rate = 48000
 alternate-sample-rate = 48000
 default-sample-channels = 2
 default-channel-map = front-left,front-right
+```
 
 #Save the file then proceed
-
+```shell
 arecord -l
+```
 
 #Take not of the card and device number. !!! If using bookworm, switch audio to use pulse audio via raspi-config !!!
 
+```shell
 sudo nano /etc/pulse/default.pa
+```
 
 #add the below to the end of the file replace the c and d with you card and device number from above
 
+```shell
 load-module module-alsa-source device=hw:c,d
 .ifexists module-udev-detect.so
-
 ```
 
 #### Canbus Set up - Optional
