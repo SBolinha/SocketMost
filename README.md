@@ -1,6 +1,8 @@
 ## SocketMost for use with [PiMost](https://shop.moderndaymods.com/products/pimost-hat-usb-c-power-most25-only)
 
-## PiMost HAT
+## The [PiMost HAT](https://shop.moderndaymods.com/products/pimost-hat-usb-c-power-most25-only) for Raspberry Pi can be purchased at the [Modern Days Mods shop](https://shop.moderndaymods.com/products/pimost-hat-usb-c-power-most25-only)
+
+Below follow the use and installation instructions.
 
 The PiMost has various headers available on the board:
 
