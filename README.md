@@ -168,11 +168,14 @@ this can be changed by preference, but needs to less than 30 seconds to allow a 
 the PiMost.
 </strike>
 
+
+
 <strike> 
 ```shell
 dtoverlay=gpio-shutdown,gpio_pin=26,active_low=0,debounce=2000
 ```
 </strike>
+
 
 NOTE: This has changed, the status signal is also used within the driver, so creates an access error, it's recommended to implement within the driver by executing a shutdown command
 
@@ -226,7 +229,7 @@ WantedBy=default.target
 
 ```
 
-Press `Cntrl X` followed by `Cntrl Y` to save the file
+Press `Cntrl X` followed by `Y` to save the file
 
 Now enable to service
 
