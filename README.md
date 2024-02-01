@@ -84,7 +84,7 @@ default-channel-map = front-left,front-right
 arecord -l
 ```
 
-#Take note of the card and device number. 
+#Take note of the card and device number.
 #If using bookworm, ensure to switch audio to use pulse audio via raspi-config.
 
 ```shell
