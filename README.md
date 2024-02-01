@@ -132,7 +132,8 @@ So, for the above example (card 3, device 1, this would change into
 ```shell
 load-module module-alsa-source device=hw:3,1
 .ifexists module-udev-detect.so
-```</i>
+```
+</i>
 
 
 #### Canbus Set up - Optional
